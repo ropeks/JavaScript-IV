@@ -28,6 +28,18 @@ class Instructor extends Person {
     grade(student, subject) {
         console.log(`${student.name} receives a perfect score on ${subject}.`);
     }
+
+    giveGrade(student) {
+        let currentGrade = student.grade;
+        while (currentGrade === student.grade) {
+            let score = Math.floor(Math.random() * 10);
+            if (currentGrade + score < 100 && currentGrade + score > 1) {
+                student.grade += score;
+            } else if (currentGrade - score < 100 && currentGrade - score > 1) {
+                student.grade -= score;
+            }
+        }
+    }
 }
 
 class Student extends Person {
@@ -36,6 +48,7 @@ class Student extends Person {
         this.previousBackground = previousBackground;
         this.className = className;
         this.favSubjects = favSubjects;
+        this.grade = 1;
     }
 
     listsSubjects() {
