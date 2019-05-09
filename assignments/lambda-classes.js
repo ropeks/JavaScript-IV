@@ -38,18 +38,33 @@ class Student extends Person {
         this.favSubjects = favSubjects;
     }
 
-    listsSubjects () {
+    listsSubjects() {
         for (let i = 0; i < this.favSubjects.length; i++) {
             console.log(this.favSubjects[i]);
         }
     }
 
-    PRAssignment (subject) {
+    PRAssignment(subject) {
         console.log(`${this.name} has submitted a PR for ${subject}.`);
     }
 
-    sprintChallenge (subject) {
+    sprintChallenge(subject) {
         console.log(`${this.name} has begun sprint challenge on ${subject}.`);
     }
 }
 
+class ProjectManager extends Instructor {
+    constructor(name, age, location, gender, specialty, favLanguage, catchPhrase, gradClassName, favInstructor) {
+        super(name, age, location, gender, specialty, favLanguage, catchPhrase);
+        this.gradClassName = gradClassName;
+        this.favInstructor = favInstructor;
+    }
+
+    standUp(slackChannel) {
+        console.log(`${this.name} announces to ${slackChannel}, @channel standy times!​​​​​`);
+    }
+
+    debugsCode(student, subject) {
+        console.log(`${this.name} debugs ${student.name}'s code on ${subject}}.`);
+    }
+} 
